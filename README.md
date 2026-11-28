@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+char** fizzBuzz(int n, int* returnSize) {
+    char** respuesta = (char**)malloc(n * sizeof(char*));
+    *returnSize = n;
+
+    for (int i = 1; i <= n; i++) {
+        respuesta[i - 1] = (char*)malloc(9 * sizeof(char));
+
+        if (i % 15 == 0) {
+            sprintf(respuesta[i - 1], "FizzBuzz");
+        } else if (i % 3 == 0) {
+            sprintf(respuesta[i - 1], "Fizz");
+        } else if (i % 5 == 0) {
+            sprintf(respuesta[i - 1], "Buzz");
+        } else {
+            sprintf(respuesta[i - 1], "%d", i);
+        }
+    }
+
+    return respuesta;
+}
